@@ -1,4 +1,19 @@
 (() => {
+    Vue.component("prof-card", {
+        props: ["prof"],
+
+        template: `<li>
+                        <img :src="'images/' prof.avatar" alt="prof image>
+                        <p>Prof Name: Temp</p>
+                        <a href="" class="remove-prof">Show {{ prof.name }}'s info</a>
+                        <a href="" class="remove-prof">Remove {{ prof.name }}</a>
+                    </li>`,
+
+        created: function() {
+            console.log(`created ${this.prof.name}'s card`);
+        }
+    });
+
     let vue_vm = new Vue({
         // el: "#app",
         
@@ -7,12 +22,7 @@
             anotherMessage: "sup",
             removeAformat: true,
             showBioData: false,
-
-            professors: [
-                { name: "Justin", role: "Coordinator", nickname: "nitsuJ" },
-                { name: "John", role: "prof", nickname: "super chill" },
-                { name: "Joe", role: "prof", nickname: "teddy bear" }
-            ]
+            professors: [],
         }, 
 
         //this is the mounted lifecycle hook. Vue is done creating itself, and has attached itself to the "app" div on the page
